@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Disha Maurya — B.Tech Computer Science & Engineering Student at ABES Engineering College, Ghaziabad. Software development, practical AI applications, algorithmic problem solving (1,049+ problems), open source (GSSoC 2026 Top 2%), and hackathons.">
+  <title>Disha Maurya | Computer Science & Engineering Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation (5 Core Pages) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Disha Maurya Home">
+        <span>Disha Maurya</span>
+        <span class="brand-badge">CSE '29</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="achievements.html" class="nav-link">Achievements</a></li>
+          <li><a href="journey.html" class="nav-link">Journey</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm">Contact Me</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle);">
+      <span style="font-weight: 700; font-size: 1rem;">Navigation</span>
+      <span class="brand-badge">ABESEC</span>
+    </div>
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+    <a href="achievements.html" class="nav-link">Achievements</a>
+    <a href="journey.html" class="nav-link">Journey</a>
+    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+      <a href="contact.html" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">Contact Me</a>
+    </div>
+  </aside>
+
+  <!-- =====================================================================
+       HERO SECTION — Two-Column Composition with Digital Centerpiece
+       ===================================================================== -->
+  <section class="hero-section" style="padding: 4.5rem 0 3.5rem; position: relative;">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Column: Professional Narrative & CTAs -->
+        <div class="hero-content">
+          <div class="hero-status-pill hero-animate hero-anim-0" style="margin-bottom: 1.25rem;">
+            <span class="status-indicator"></span>
+            <span>ABES Engineering College, Ghaziabad • Class of 2029</span>
+          </div>
+
+          <h1 class="hero-title hero-animate hero-anim-1" style="font-size: clamp(2.75rem, 5.5vw, 4.25rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 0.6rem;">
+            Disha Maurya
+          </h1>
+
+          <div class="hero-role hero-animate hero-anim-2" style="font-size: clamp(1.2rem, 2.2vw, 1.75rem); font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.6rem; letter-spacing: -0.01em;">
+            Computer Science & Engineering Student
+          </div>
+
+          <div class="hero-animate hero-anim-3" style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9375rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem;">
+            <span style="color: var(--accent-cyan);">Building</span>
+            <span style="opacity: 0.35;">•</span>
+            <span style="color: var(--accent-indigo);">Solving</span>
+            <span style="opacity: 0.35;">•</span>
+            <span style="color: var(--accent-emerald);">Contributing</span>
+          </div>
+
+          <p class="hero-desc hero-animate hero-anim-4" style="font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem;">
+            Engineering practical web systems, AI civic applications, and data-driven tools. Grounded in daily algorithmic problem-solving on CodeChef, competitive hackathon execution, and global open-source contribution in GSSoC 2026.
+          </p>
+
+          <div class="hero-cta-group hero-animate hero-anim-5" style="display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.75rem;">
+            <a href="projects.html" class="btn btn-primary">
+              <span>Explore Projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="/Disha_Maurya_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="heroResumeBtn" aria-label="View Disha Maurya's Resume in a new browser tab">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>View Resume</span>
+            </a>
+
+            <a href="about.html#contact" class="btn btn-outline">
+              Get In Touch
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="hero-animate hero-anim-6" style="display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;">
+            <span style="font-size: 0.8125rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Profiles:</span>
+            <div class="social-links">
+              <a href="https://github.com/dishamaurya081-create" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+              <a href="https://www.linkedin.com/in/disha-maurya-9996413b5/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+              <a href="https://www.codechef.com/users/disha081" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="CodeChef"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg></a>
+              <a href="https://leetcode.com/u/disha081/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LeetCode"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .666-1.607 2.6 2.6 0 0 1 .616-.499l3.8-4.069 5.36-5.748c.535-.541.535-1.418-.002-1.959A1.37 1.37 0 0 0 13.483 0zm-2.88 7.286c-.766 0-1.388.622-1.388 1.388v7.652c0 .766.622 1.388 1.388 1.388h7.652c.766 0 1.388-.622 1.388-1.388V8.674c0-.766-.622-1.388-1.388-1.388z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Software Engineering Workspace & Systems Architecture -->
+        <div class="hero-visual">
+          <div class="cse-workspace-card" id="heroWorkspaceVisual" title="Disha Maurya — Interactive Software Engineering Architecture">
+            
+            <!-- Window IDE Header Bar -->
+            <div class="workspace-titlebar">
+              <div class="titlebar-controls" aria-hidden="true">
+                <span class="control-dot dot-close"></span>
+                <span class="control-dot dot-min"></span>
+                <span class="control-dot dot-expand"></span>
+              </div>
+              <div class="workspace-tabs" role="tablist" aria-label="Code and Architecture Tabs">
+                <button class="ws-tab active" data-tab="runtime" role="tab" aria-selected="true" id="tabRuntime">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  <span>architecture.ts</span>
+                </button>
+                <button class="ws-tab" data-tab="ai" role="tab" aria-selected="false" id="tabAI">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  <span>nagar_ai.py</span>
+                </button>
+                <button class="ws-tab" data-tab="dsa" role="tab" aria-selected="false" id="tabDSA">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"></circle><circle cx="5" cy="19" r="3"></circle><circle cx="19" cy="19" r="3"></circle><path d="M12 8v4M7 17l3.5-5M17 17l-3.5-5"></path></svg>
+                  <span>dsa_graph.cpp</span>
+                </button>
+              </div>
+              <div class="workspace-telemetry mono">
+                <span class="pulse-emerald-dot" aria-hidden="true"></span>
+                <span class="telemetry-text">BUILD: PASSING</span>
+              </div>
+            </div>
+
+            <!-- Workspace Body: Editor Pane + Systems Architecture Modules -->
+            <div class="workspace-interior">
+              
+              <!-- Left Column: Code Editor with Syntax Highlighting -->
+              <div class="workspace-editor-pane">
+                <div class="editor-subbar">
+                  <div class="file-path-indicator mono">
+                    <span class="path-prefix">src/core/</span><span class="path-current" id="activeFileLabel">architecture.ts</span>
+                  </div>
+                  <span class="lang-pill mono" id="activeLangLabel">TYPESCRIPT</span>
+                </div>
+                <div class="code-viewport" id="codeViewport" aria-label="Code Editor Preview">
+                  <!-- Dynamically rendered by hero-centerpiece.js -->
+                </div>
+              </div>
+
+              <!-- Right Column: Connected Software Architecture Modules -->
+              <div class="workspace-modules-pane">
+                
+                <!-- Module A: Algorithm & Data Structure Engine -->
+                <div class="system-module algo-module" id="moduleAlgo">
+                  <div class="module-header">
+                    <div class="module-title-wrap">
+                      <span class="module-badge badge-blue">ALGORITHM</span>
+                      <span class="module-name mono">DSA Engine</span>
+                    </div>
+                    <span class="module-stat-pill mono">1,049+ Solved</span>
+                  </div>
+                  <div class="flowchart-container" aria-label="Algorithm Pipeline Flow">
+                    <div class="flow-node">Stream</div>
+                    <div class="flow-connector" aria-hidden="true">➔</div>
+                    <div class="flow-node active-step" id="flowStep2">O(log N) Heap</div>
+                    <div class="flow-connector" aria-hidden="true">➔</div>
+                    <div class="flow-node" id="flowStep3">Topological DP</div>
+                  </div>
+                </div>
+
+                <!-- Module B: Distributed Architecture Bus -->
+                <div class="system-module arch-bus-module" id="moduleBus">
+                  <div class="module-header">
+                    <div class="module-title-wrap">
+                      <span class="module-badge badge-purple">AI SYSTEMS</span>
+                      <span class="module-name mono">Full-Stack Flow</span>
+                    </div>
+                    <span class="module-stat-pill mono text-cyan">REST / JSON</span>
+                  </div>
+                  <div class="bus-architecture-flow">
+                    <div class="bus-tier">
+                      <span class="tier-label mono">REACT</span>
+                      <span class="tier-detail">TS Client</span>
+                    </div>
+                    <div class="bus-bridge" aria-hidden="true">
+                      <span class="bridge-line"></span>
+                      <span class="bridge-tag mono">API</span>
+                    </div>
+                    <div class="bus-tier">
+                      <span class="tier-label mono">DATABASE</span>
+                      <span class="tier-detail">PostgreSQL</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Module C: Open Source Verified Metric -->
+                <div class="system-module oss-module" id="moduleOss">
+                  <div class="module-header">
+                    <div class="module-title-wrap">
+                      <span class="module-badge badge-green">OPEN SOURCE</span>
+                      <span class="module-name mono">GSSoC '26</span>
+                    </div>
+                    <span class="module-stat-pill mono text-emerald">21 PRs Merged</span>
+                  </div>
+                  <div class="oss-badges-row mono">
+                    <span class="oss-chip">Global Rank #749</span>
+                    <span class="oss-chip">Top 2%</span>
+                    <span class="oss-chip">8 Repos</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Integrated Developer Terminal Console -->
+            <div class="workspace-terminal-pane">
+              <div class="terminal-header-bar mono">
+                <div class="term-left">
+                  <span class="term-icon">❯_</span>
+                  <span class="term-path">disha@portfolio: ~/workspace</span>
+                </div>
+                <div class="term-right">
+                  <span class="term-pill">ENV: PRODUCTION</span>
+                  <span class="term-pill">LATENCY: 4ms</span>
+                </div>
+              </div>
+              <div class="terminal-console mono" id="terminalConsole" aria-live="polite">
+                <div class="term-row"><span class="term-dim">$</span> npm run build:verify</div>
+                <div class="term-row text-cyan">✓ [ALGORITHMS] 1,049 DSA problems solved (CodeChef Diamond • 29 Contests)</div>
+                <div class="term-row text-emerald">✓ [OPEN_SOURCE] 21 merged PRs in GSSoC 2026 across 8 production repositories</div>
+                <div class="term-row text-indigo">✓ [PRACTICAL_AI] Gemini Vision & civic models deployed on Nagar AI & Privacy Guardian</div>
+                <div class="term-row active-cmd"><span class="term-dim">$</span> <span class="term-cursor">█</span></div>
+              </div>
+            </div>
+
+            <!-- Structured 90-degree Circuit Trace Paths (Computer Architecture Conduits) -->
+            <svg class="workspace-circuits-canvas" aria-hidden="true" preserveAspectRatio="none">
+              <path class="circuit-path" d="M 10,20 L 10,80 L 40,80" fill="none"></path>
+              <path class="circuit-path" d="M 280,30 L 280,110 L 310,110" fill="none"></path>
+              <circle class="circuit-signal pulse-1" r="2.5"></circle>
+              <circle class="circuit-signal pulse-2" r="2.5"></circle>
+            </svg>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       PROOF-OF-WORK VERIFIED STATS STRIP
+       ===================================================================== -->
+  <section class="container" style="margin-bottom: 4rem;">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" style="color: var(--accent-cyan);">1,049</div>
+        <div class="stat-label">CodeChef Problems Solved</div>
+        <span class="stat-tag">Problem Solver Diamond Badge</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: var(--accent-indigo);">21</div>
+        <div class="stat-label">GSSoC PRs Merged</div>
+        <span class="stat-tag">Open Source Contributor</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: var(--accent-emerald);">8</div>
+        <div class="stat-label">Repositories Contributed</div>
+        <span class="stat-tag">Multi-stack codebases</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: var(--accent-amber);">5,550</div>
+        <div class="stat-label">GSSoC Leaderboard Points</div>
+        <span class="stat-tag">Global Rank #749 • Top 2%</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: var(--text-primary);">29</div>
+        <div class="stat-label">Rated Contests Participated</div>
+        <span class="stat-tag">Contest Contender Silver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       CURRENT FOCUS SECTION
+       ===================================================================== -->
+  <section class="container" style="margin-bottom: 5rem;">
+    <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem 2.5rem;" class="reveal">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+        <div>
+          <span class="badge badge-cyan">Active Trajectory</span>
+          <h2 style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 0.35rem;">
+            Current Focus & Engineering Domains
+          </h2>
+        </div>
+        <span class="mono" style="font-size: 0.8125rem; color: var(--accent-cyan);">status: actively_building();</span>
+      </div>
+
+      <div class="grid-4 focus-domains-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem;">
+        
+        <div class="focus-domain-card focus-cyan reveal stagger-1">
+          <div class="focus-domain-top">
+            <div class="focus-domain-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="5" r="3"></circle>
+                <circle cx="5" cy="19" r="3"></circle>
+                <circle cx="19" cy="19" r="3"></circle>
+                <path d="M12 8v4M7 17l3.5-5M17 17l-3.5-5"></path>
+              </svg>
+            </div>
+            <span class="focus-domain-tag mono">01 // ALGO</span>
+          </div>
+          <div class="focus-domain-title">DSA & Problem Solving</div>
+          <div class="focus-domain-desc">Daily algorithm practice, graph theory, dynamic programming & competitive contests.</div>
+          <div class="focus-domain-bar"></div>
+        </div>
+
+        <div class="focus-domain-card focus-indigo reveal stagger-2">
+          <div class="focus-domain-top">
+            <div class="focus-domain-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="8" x2="22" y2="8"></line>
+                <circle cx="5" cy="5.5" r="0.75" fill="currentColor"></circle>
+                <circle cx="8" cy="5.5" r="0.75" fill="currentColor"></circle>
+                <circle cx="11" cy="5.5" r="0.75" fill="currentColor"></circle>
+                <path d="M7 21h10M12 17v4"></path>
+              </svg>
+            </div>
+            <span class="focus-domain-tag mono">02 // WEB_SYS</span>
+          </div>
+          <div class="focus-domain-title">Web Development</div>
+          <div class="focus-domain-desc">Building modular React, TypeScript, and modern responsive frontend systems.</div>
+          <div class="focus-domain-bar"></div>
+        </div>
+
+        <div class="focus-domain-card focus-emerald reveal stagger-3">
+          <div class="focus-domain-top">
+            <div class="focus-domain-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="5" width="14" height="14" rx="2"></rect>
+                <path d="M9 9h6v6H9z"></path>
+                <path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"></path>
+              </svg>
+            </div>
+            <span class="focus-domain-tag mono">03 // AI_CORE</span>
+          </div>
+          <div class="focus-domain-title">Practical AI Systems</div>
+          <div class="focus-domain-desc">Integrating Gemini API & Gemini Vision for civic automation and document auditing.</div>
+          <div class="focus-domain-bar"></div>
+        </div>
+
+        <div class="focus-domain-card focus-amber reveal stagger-4">
+          <div class="focus-domain-top">
+            <div class="focus-domain-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="18" r="3"></circle>
+                <circle cx="6" cy="6" r="3"></circle>
+                <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+                <line x1="6" y1="9" x2="6" y2="21"></line>
+              </svg>
+            </div>
+            <span class="focus-domain-tag mono">04 // OSS_PR</span>
+          </div>
+          <div class="focus-domain-title">Open Source</div>
+          <div class="focus-domain-desc">Contributing to production repositories, resolving issues, and peer reviewing PRs.</div>
+          <div class="focus-domain-bar"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       EXPLORATION CONDUITS TO THE 4 OTHER PRIMARY PAGES
+       ===================================================================== -->
+  <main class="container" style="margin-bottom: 5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="badge badge-neutral">Portfolio Architecture</span>
+      <h2 style="font-size: 1.875rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 0.5rem;">
+        Explore Disha's Engineering Portfolio
+      </h2>
+    </div>
+
+    <div class="grid-2" style="gap: 1.5rem;">
+      
+      <!-- Link to ABOUT -->
+      <a href="about.html" class="card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-color: rgba(56, 189, 248, 0.25); text-decoration: none;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge badge-cyan">Page 2 — About Me</span>
+            <span class="pill-tag mono">CGPA 8.89/10</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+            About & Academic Profile
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Academics at ABES Engineering College, interactive technical skills repertoire, 5 coding profiles, top milestones, and complete certificate gallery.
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--accent-cyan);">
+          <span>Read Full Biography & Academics</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+
+      <!-- Link to EXPERIENCE -->
+      <a href="experience.html" class="card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-color: rgba(16, 185, 129, 0.25); text-decoration: none;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge badge-emerald">Page 3 — Experience</span>
+            <span class="pill-tag mono">Top Performer</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+            Internship & Open Source
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Web Development Internship at InAmigos Foundation with Top Performer recognition, paired with GSSoC 2026 (21 merged PRs, Global Rank #749).
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--accent-emerald);">
+          <span>View Professional Experience & GSSoC</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+
+      <!-- Link to PROJECTS -->
+      <a href="projects.html" class="card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-color: rgba(99, 102, 241, 0.25); text-decoration: none;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge badge-indigo">Page 4 — Projects</span>
+            <span class="pill-tag mono">5 Engineered Systems</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+            Production Software Projects
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Large editorial showcases for Nagar AI, Privacy Guardian AI, and ClassMate, alongside Why This App and DodgeLife game engine.
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--accent-indigo);">
+          <span>Explore All Projects & Demos</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+
+      <!-- Link to JOURNEY -->
+      <a href="journey.html" class="card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-color: rgba(245, 158, 11, 0.25); text-decoration: none;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge badge-amber">Page 5 — Journey</span>
+            <span class="pill-tag mono">6 Hackathons • 7 Challenges</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+            The Journey So Far
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Chronological hackathon timeline with Code Clutch offline finalist standing, alongside national engineering challenges and algorithmic contests.
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--accent-amber);">
+          <span>Follow Chronological Timeline</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 0.5rem;">Disha Maurya</div>
+          <p style="color: var(--text-muted); font-size: 0.875rem; max-width: 380px; line-height: 1.6; margin-bottom: 1.25rem;">
+            B.Tech Computer Science & Engineering student at ABES Engineering College, Ghaziabad • Class of 2029.
+          </p>
+          <div class="social-links">
+            <a href="https://github.com/dishamaurya081-create" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://www.linkedin.com/in/disha-maurya-9996413b5/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            <a href="https://www.codechef.com/users/disha081" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="CodeChef"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg></a>
+            <a href="https://leetcode.com/u/disha081/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LeetCode"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .666-1.607 2.6 2.6 0 0 1 .616-.499l3.8-4.069 5.36-5.748c.535-.541.535-1.418-.002-1.959A1.37 1.37 0 0 0 13.483 0zm-2.88 7.286c-.766 0-1.388.622-1.388 1.388v7.652c0 .766.622 1.388 1.388 1.388h7.652c.766 0 1.388-.622 1.388-1.388V8.674c0-.766-.622-1.388-1.388-1.388z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Primary Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Disha</a></li>
+            <li><a href="experience.html" class="footer-link">Experience (InAmigos & GSSoC)</a></li>
+            <li><a href="projects.html" class="footer-link">Software Projects</a></li>
+            <li><a href="achievements.html" class="footer-link">Verified Achievements</a></li>
+            <li><a href="journey.html" class="footer-link">Journey (Timeline & Contests)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Inquiries</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:dishamaurya081l@gmail.com" class="footer-link">dishamaurya081l@gmail.com</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Page</a></li>
+            <li><a href="journey.html" class="footer-link">Certificate Archive</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Disha Maurya. All verified statistics and credentials documented.</div>
+        <div>ABES Engineering College, Ghaziabad</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/cse-background.js"></script>
+  <script src="js/hero-centerpiece.js"></script>
+</body>
+</html>
