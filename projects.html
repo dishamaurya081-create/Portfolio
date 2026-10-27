@@ -226,7 +226,7 @@
         </div>
       </article>
 
-      <!-- EDITORIAL SHOWCASE 2: PRIVACY GUARDIAN AI -->
+      <!-- EDITORIAL SHOWCASE 2: CLASSMATE -->
       <article class="editorial-project reverse reveal">
         <!-- Visual Architecture Schematic Column -->
         <div class="project-schematic">
@@ -236,205 +236,8 @@
               <span class="dot-yellow"></span>
               <span class="dot-green"></span>
             </div>
-            <span>privacy-guardian.ai // audit-engine</span>
-            <span style="color: #6366f1;">HACKHAZARDS '26</span>
-          </div>
-
-          <div class="schematic-body">
-            <!-- Node 1: Ingestion -->
-            <div class="schematic-node">
-              <div class="schematic-node-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
-                <span>ToS / Policy Ingestion</span>
-              </div>
-              <span class="schematic-node-status">Text / URL / PDF</span>
-            </div>
-            <div class="schematic-connector"></div>
-
-            <!-- Node 2: Gemini 2.5 Flash Breakdown -->
-            <div class="schematic-node" style="border-color: rgba(99, 102, 241, 0.5); background: rgba(99, 102, 241, 0.08);">
-              <div class="schematic-node-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <span style="color: #a5b4fc; font-weight: 700;">Gemini 2.5 Flash Ingestion</span>
-              </div>
-              <span class="schematic-node-status" style="color: #a5b4fc;">Fast LLM Parse</span>
-            </div>
-            <div class="schematic-connector"></div>
-
-            <!-- Node 3: Health Score & Risk Matrix -->
-            <div class="schematic-node">
-              <div class="schematic-node-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #f59e0b;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-                <span>Risk Matrix & Clause Scoring</span>
-              </div>
-              <span class="schematic-node-status" style="color: #f59e0b;">Score: 78/100</span>
-            </div>
-            <div class="schematic-connector"></div>
-
-            <!-- Node 4: Compare Mode & Assistant -->
-            <div class="schematic-node">
-              <div class="schematic-node-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #38bdf8;"><circle cx="12" cy="12" r="10"/></svg>
-                <span>Grounded Chat Assistant</span>
-              </div>
-              <span class="schematic-node-status">Exportable Audit PDF</span>
-            </div>
-
-            <!-- Micro Code Stream -->
-            <div class="schematic-code" style="margin-top: 1rem;">
-              <div><span class="comment">// Risk Clause Extraction</span></div>
-              <div><span class="keyword">interface</span> <span class="function">RiskAuditResult</span> {</div>
-              <div>&nbsp;&nbsp;retentionPeriod: <span class="string">"indefinite"</span>,</div>
-              <div>&nbsp;&nbsp;thirdPartySharing: <span class="string">"monetized_brokers"</span>,</div>
-              <div>&nbsp;&nbsp;arbitrationClause: <span class="keyword">true</span>,</div>
-              <div>&nbsp;&nbsp;healthScore: <span class="string">78</span></div>
-              <div>}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spec Column -->
-        <div style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-              <span class="badge badge-indigo">Trust, Identity & Security</span>
-              <span class="pill-tag mono">HACKHAZARDS '26 Hackathon</span>
-            </div>
-
-            <h3 class="project-title" style="font-size: 2.25rem; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
-              Privacy Guardian AI
-            </h3>
-
-            <div style="background: rgba(99, 102, 241, 0.06); border-left: 3px solid var(--accent-indigo); padding: 0.75rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
-              <strong>Core Problem:</strong> End users routinely accept hundreds of pages of legal Terms of Service without knowing their data retention, cross-platform tracking, or forced arbitration terms.
-            </div>
-
-            <p class="project-desc" style="margin-bottom: 1.25rem;">
-              An intelligent Terms of Service analyzer that dissects legal jargon and translates policies into an interactive privacy health score, risk clause highlights, side-by-side policy comparisons, and conversational Q&amp;A.
-            </p>
-
-            <div style="margin-bottom: 0.75rem; font-size: 0.8125rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;">
-              Key System Capabilities:
-            </div>
-            <ul class="feature-list" style="grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Privacy Health Score:</strong> Calibrated algorithmic assessment out of 100 with weighted risk penalties.</span>
-              </li>
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Risk-Clause Breakdown:</strong> Pinpoints clauses for data brokers, biometric tracking, and arbitration.</span>
-              </li>
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Compare Mode:</strong> Side-by-side multi-policy delta analysis for competitor app evaluation.</span>
-              </li>
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Grounded AI Assistant & PDF Export:</strong> Chat interface answering specific questions directly from verified document text.</span>
-              </li>
-            </ul>
-
-            <div class="tech-tags" style="margin-bottom: 1.5rem;">
-              <span class="pill-tag">React</span>
-              <span class="pill-tag">TypeScript</span>
-              <span class="pill-tag">Gemini 2.5 Flash</span>
-              <span class="pill-tag">NLP / Legal Tech</span>
-              <span class="pill-tag">jsPDF</span>
-              <span class="pill-tag">Vercel</span>
-            </div>
-          </div>
-
-          <div class="project-actions">
-            <a href="https://privacy-guardian-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              Live Demo
-            </a>
-            <a href="https://github.com/dishamaurya081-create/Privacy-Guardian-AI" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
-            <button data-certificate-src="assets/hackathons/HACKHAZARDS.pdf" data-certificate-title="HACKHAZARDS '26 Participation Certificate" class="btn btn-outline">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              Certificate
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- EDITORIAL SHOWCASE 3: CLASSMATE -->
-      <article class="editorial-project reveal">
-        <!-- Spec Column -->
-        <div style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-              <span class="badge badge-amber">Student Productivity</span>
-              <span class="pill-tag mono" style="color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3);">Status: In Progress</span>
-              <span class="badge badge-neutral">ABESEC Specific</span>
-            </div>
-
-            <h3 class="project-title" style="font-size: 2.25rem; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
-              ClassMate
-            </h3>
-
-            <div style="background: rgba(245, 158, 11, 0.06); border-left: 3px solid var(--accent-amber); padding: 0.75rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
-              <strong>Core Problem:</strong> College engineering timetables are notoriously convoluted with alternating lab batches, electives, and sudden room switches that generic calendar apps fail to track accurately.
-            </div>
-
-            <p class="project-desc" style="margin-bottom: 1.25rem;">
-              A tailored timetable and academic scheduling engine designed specifically for ABES Engineering College students, featuring section/group timetable routing, real-time class countdowns, offline cache, and web push notifications.
-            </p>
-
-            <div style="margin-bottom: 0.75rem; font-size: 0.8125rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;">
-              Key System Capabilities:
-            </div>
-            <ul class="feature-list" style="grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Section/Track Hierarchy:</strong> Granular department, semester, section, and lab group timetable mapping.</span>
-              </li>
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Real-time State Machine:</strong> Dynamic calculation of current lecture, upcoming lab, break countdown, and room numbers.</span>
-              </li>
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Offline-First PWA:</strong> Service worker caching guaranteeing instant schedule display even in basement lecture halls with no cellular reception.</span>
-              </li>
-              <li class="feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Web Push & Theme Toggle:</strong> Proactive 5-minute pre-class warnings and adaptive high-contrast dark theme.</span>
-              </li>
-            </ul>
-
-            <div class="tech-tags" style="margin-bottom: 1.5rem;">
-              <span class="pill-tag">React</span>
-              <span class="pill-tag">TypeScript</span>
-              <span class="pill-tag">Supabase</span>
-              <span class="pill-tag">PostgreSQL</span>
-              <span class="pill-tag">Web Push API</span>
-              <span class="pill-tag">PWA Service Workers</span>
-            </div>
-          </div>
-
-          <div class="project-actions">
-            <span class="pill-tag mono" style="color: var(--accent-amber); background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); padding: 0.5rem 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-              <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-amber); box-shadow: 0 0 6px var(--accent-amber);" class="pulse-beacon"></span>
-              In Active Development — Timetable Caching Underway
-            </span>
-          </div>
-        </div>
-
-        <!-- Visual Architecture Schematic Column -->
-        <div class="project-schematic">
-          <div class="schematic-topbar">
-            <div class="window-dots">
-              <span class="dot-red"></span>
-              <span class="dot-yellow"></span>
-              <span class="dot-green"></span>
-            </div>
             <span>classmate.abes // timetable-daemon</span>
-            <span style="color: #f59e0b;">BUILDING</span>
+            <span style="color: var(--accent-emerald); font-weight: 700;">LIVE ON VERCEL</span>
           </div>
 
           <div class="schematic-body">
@@ -474,6 +277,207 @@
               <div>&nbsp;&nbsp;<span class="keyword">return</span> schedule.slots.<span class="function">find</span>(slot =&gt; </div>
               <div>&nbsp;&nbsp;&nbsp;&nbsp;now &gt;= slot.startTime &amp;&amp; now &lt; slot.endTime</div>
               <div>&nbsp;&nbsp;);</div>
+              <div>}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spec Column -->
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+              <span class="badge badge-emerald">Live &amp; Deployed</span>
+              <span class="badge badge-amber">Student Productivity</span>
+              <span class="pill-tag mono">ABESEC Specific</span>
+            </div>
+
+            <h3 class="project-title" style="font-size: 2.25rem; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+              ClassMate
+            </h3>
+
+            <div style="background: rgba(245, 158, 11, 0.06); border-left: 3px solid var(--accent-amber); padding: 0.75rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <strong>Core Problem:</strong> College engineering timetables are notoriously convoluted with alternating lab batches, electives, and sudden room switches that generic calendar apps fail to track accurately.
+            </div>
+
+            <p class="project-desc" style="margin-bottom: 1.25rem;">
+              A tailored timetable and academic scheduling engine designed specifically for ABES Engineering College students, featuring section/group timetable routing, real-time class countdowns, offline cache, and web push notifications.
+            </p>
+
+            <div style="margin-bottom: 0.75rem; font-size: 0.8125rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;">
+              Key System Capabilities:
+            </div>
+            <ul class="feature-list" style="grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Section/Track Hierarchy:</strong> Granular department, semester, section, and lab group timetable mapping.</span>
+              </li>
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Real-time State Machine:</strong> Dynamic calculation of current lecture, upcoming lab, break countdown, and room numbers.</span>
+              </li>
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Offline-First PWA:</strong> Service worker caching guaranteeing instant schedule display even in basement lecture halls with no cellular reception.</span>
+              </li>
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Web Push &amp; Theme Toggle:</strong> Proactive 5-minute pre-class warnings and adaptive high-contrast dark theme.</span>
+              </li>
+            </ul>
+
+            <div class="tech-tags" style="margin-bottom: 1.5rem;">
+              <span class="pill-tag">React</span>
+              <span class="pill-tag">TypeScript</span>
+              <span class="pill-tag">Supabase</span>
+              <span class="pill-tag">PostgreSQL</span>
+              <span class="pill-tag">Web Push API</span>
+              <span class="pill-tag">PWA Service Workers</span>
+            </div>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://class-mate-theta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Live Demo
+            </a>
+            <a href="https://github.com/dishamaurya081-create/ClassMate.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              View Source
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- EDITORIAL SHOWCASE 3: PRIVACY GUARDIAN AI -->
+      <article class="editorial-project reveal">
+        <!-- Spec Column -->
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+              <span class="badge badge-indigo">Trust, Identity &amp; Security</span>
+              <span class="pill-tag mono">HACKHAZARDS '26 Hackathon</span>
+            </div>
+
+            <h3 class="project-title" style="font-size: 2.25rem; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+              Privacy Guardian AI
+            </h3>
+
+            <div style="background: rgba(99, 102, 241, 0.06); border-left: 3px solid var(--accent-indigo); padding: 0.75rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <strong>Core Problem:</strong> End users routinely accept hundreds of pages of legal Terms of Service without knowing their data retention, cross-platform tracking, or forced arbitration terms.
+            </div>
+
+            <p class="project-desc" style="margin-bottom: 1.25rem;">
+              An intelligent Terms of Service analyzer that dissects legal jargon and translates policies into an interactive privacy health score, risk clause highlights, side-by-side policy comparisons, and conversational Q&amp;A.
+            </p>
+
+            <div style="margin-bottom: 0.75rem; font-size: 0.8125rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;">
+              Key System Capabilities:
+            </div>
+            <ul class="feature-list" style="grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Privacy Health Score:</strong> Calibrated algorithmic assessment out of 100 with weighted risk penalties.</span>
+              </li>
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Risk-Clause Breakdown:</strong> Pinpoints clauses for data brokers, biometric tracking, and arbitration.</span>
+              </li>
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Compare Mode:</strong> Side-by-side multi-policy delta analysis for competitor app evaluation.</span>
+              </li>
+              <li class="feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Grounded AI Assistant &amp; PDF Export:</strong> Chat interface answering specific questions directly from verified document text.</span>
+              </li>
+            </ul>
+
+            <div class="tech-tags" style="margin-bottom: 1.5rem;">
+              <span class="pill-tag">React</span>
+              <span class="pill-tag">TypeScript</span>
+              <span class="pill-tag">Gemini 2.5 Flash</span>
+              <span class="pill-tag">NLP / Legal Tech</span>
+              <span class="pill-tag">jsPDF</span>
+              <span class="pill-tag">Vercel</span>
+            </div>
+          </div>
+
+          <div class="project-actions">
+            <a href="https://privacy-guardian-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Live Demo
+            </a>
+            <a href="https://github.com/dishamaurya081-create/Privacy-Guardian-AI" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <button data-certificate-src="assets/hackathons/HACKHAZARDS.pdf" data-certificate-title="HACKHAZARDS '26 Participation Certificate" class="btn btn-outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              Certificate
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual Architecture Schematic Column -->
+        <div class="project-schematic">
+          <div class="schematic-topbar">
+            <div class="window-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <span>privacy-guardian.ai // audit-engine</span>
+            <span style="color: #6366f1;">HACKHAZARDS '26</span>
+          </div>
+
+          <div class="schematic-body">
+            <!-- Node 1: Ingestion -->
+            <div class="schematic-node">
+              <div class="schematic-node-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                <span>ToS / Policy Ingestion</span>
+              </div>
+              <span class="schematic-node-status">Text / URL / PDF</span>
+            </div>
+            <div class="schematic-connector"></div>
+
+            <!-- Node 2: Gemini 2.5 Flash Breakdown -->
+            <div class="schematic-node" style="border-color: rgba(99, 102, 241, 0.5); background: rgba(99, 102, 241, 0.08);">
+              <div class="schematic-node-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a5b4fc;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span style="color: #a5b4fc; font-weight: 700;">Gemini 2.5 Flash Ingestion</span>
+              </div>
+              <span class="schematic-node-status" style="color: #a5b4fc;">Fast LLM Parse</span>
+            </div>
+            <div class="schematic-connector"></div>
+
+            <!-- Node 3: Health Score & Risk Matrix -->
+            <div class="schematic-node">
+              <div class="schematic-node-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #f59e0b;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+                <span>Risk Matrix &amp; Clause Scoring</span>
+              </div>
+              <span class="schematic-node-status" style="color: #f59e0b;">Score: 78/100</span>
+            </div>
+            <div class="schematic-connector"></div>
+
+            <!-- Node 4: Compare Mode & Assistant -->
+            <div class="schematic-node">
+              <div class="schematic-node-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #38bdf8;"><circle cx="12" cy="12" r="10"/></svg>
+                <span>Grounded Chat Assistant</span>
+              </div>
+              <span class="schematic-node-status">Exportable Audit PDF</span>
+            </div>
+
+            <!-- Micro Code Stream -->
+            <div class="schematic-code" style="margin-top: 1rem;">
+              <div><span class="comment">// Risk Clause Extraction</span></div>
+              <div><span class="keyword">interface</span> <span class="function">RiskAuditResult</span> {</div>
+              <div>&nbsp;&nbsp;retentionPeriod: <span class="string">"indefinite"</span>,</div>
+              <div>&nbsp;&nbsp;thirdPartySharing: <span class="string">"monetized_brokers"</span>,</div>
+              <div>&nbsp;&nbsp;arbitrationClause: <span class="keyword">true</span>,</div>
+              <div>&nbsp;&nbsp;healthScore: <span class="string">78</span></div>
               <div>}</div>
             </div>
           </div>

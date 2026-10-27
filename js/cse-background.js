@@ -1,14 +1,26 @@
 /**
  * Disha Maurya Portfolio — CSE Engineering Architecture Background
- * Clean, structured Computer Science & Engineering architectural environment.
- * Replaces space/galaxy particles with a sophisticated blueprint & system circuit bus.
- * Zero scattered particles, zero star constellations, zero orbiting rings.
+ * 
+ * Living Software Engineering Architecture Canvas:
+ * - Structured orthogonal circuit traces & system bus conduits (90-degree IC bends)
+ * - Restrained data packets travelling along designated bus routes
+ * - Faint technical coordinate grid with subtle parallax response to scroll & pointer
+ * - Softly pulsating architectural connection nodes with breathing halos
+ * - Slow-drifting subtle ambient gradient spotlights behind content
+ * - Restrained telemetry annotations (hex addresses, bus clocks, system sync)
+ * 
+ * Performance & Accessibility:
+ * - Full prefers-reduced-motion support (renders calm static architectural blueprint)
+ * - Mobile / coarse-pointer detection disables pointer parallax on touch screens
+ * - Automatic pause via Page Visibility API when tab is hidden
+ * - Zero WebGL overhead, zero galaxy/space particles, 100% accessible contrast
  */
 
 (function () {
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
   function initCSEArchitectureBackground() {
     let canvas = document.getElementById('cseNetworkCanvas');
@@ -17,6 +29,7 @@
       canvas.id = 'cseNetworkCanvas';
       document.body.prepend(canvas);
     }
+
     canvas.setAttribute('aria-hidden', 'true');
     canvas.style.cssText = `
       position: fixed !important;
@@ -30,165 +43,463 @@
     `;
 
     const ctx = canvas.getContext('2d');
-    let W, H;
-    let animId = null;
+    if (!ctx) return;
 
-    // Structured rectilinear bus tracks (orthogonal 90-degree lines inspired by IC board / system bus architecture)
-    let buses = [];
-    let pulses = [];
+    let W = 0;
+    let H = 0;
+    let animId = null;
+    let startTime = performance.now();
+
+    // Parallax tracking variables with smooth lerp
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    let scrollY = 0;
+    let targetScrollY = 0;
+
+    // Structured architectural nodes
+    let nodes = [];
+    // Multi-segment orthogonal circuit paths
+    let paths = [];
+    // Data packets travelling along the paths
+    let packets = [];
+
+    function setupArchitecture() {
+      // Base layout grid parameters
+      const cols = Math.max(4, Math.floor(W / 260));
+      const colW = W / cols;
+
+      // Define logical system nodes at structural coordinates
+      nodes = [
+        {
+          id: 'BUS_CTRL',
+          x: Math.round(colW * 0.45),
+          y: Math.round(H * 0.18),
+          label: 'SYS_BUS // 0x1A',
+          color: '#38bdf8',
+          accent: 'cyan',
+          phase: 0.0
+        },
+        {
+          id: 'ALGO_CORE',
+          x: Math.round(colW * 1.8),
+          y: Math.round(H * 0.28),
+          label: 'ALGO_CORE [100MHz]',
+          color: '#6366f1',
+          accent: 'indigo',
+          phase: 1.2
+        },
+        {
+          id: 'MEM_BANK',
+          x: Math.round(colW * (cols - 0.7)),
+          y: Math.round(H * 0.22),
+          label: 'MEM_BANK // 0x4F',
+          color: '#38bdf8',
+          accent: 'cyan',
+          phase: 2.1
+        },
+        {
+          id: 'BRIDGE_IO',
+          x: Math.round(colW * 0.7),
+          y: Math.round(H * 0.58),
+          label: 'IO_PORT: READY',
+          color: '#10b981',
+          accent: 'emerald',
+          phase: 0.8
+        },
+        {
+          id: 'PIPELINE_SYNC',
+          x: Math.round(colW * (cols - 1.5)),
+          y: Math.round(H * 0.64),
+          label: 'SYNC_DAEMON: OK',
+          color: '#6366f1',
+          accent: 'indigo',
+          phase: 3.4
+        },
+        {
+          id: 'TERM_ROUTER',
+          x: Math.round(colW * 1.25),
+          y: Math.round(H * 0.86),
+          label: 'PACKET_ROUTER',
+          color: '#38bdf8',
+          accent: 'cyan',
+          phase: 4.2
+        },
+        {
+          id: 'NET_GATE',
+          x: Math.round(colW * (cols - 0.5)),
+          y: Math.round(H * 0.88),
+          label: 'GATEWAY_LINK',
+          color: '#10b981',
+          accent: 'emerald',
+          phase: 1.9
+        }
+      ];
+
+      // Build structured orthogonal circuit paths with 90-degree bends
+      // Points format: array of [x, y] coordinates
+      paths = [
+        // Path 0: Top left bus to Algo Core
+        {
+          id: 'PATH_SYS_ALGO',
+          points: [
+            [nodes[0].x, nodes[0].y],
+            [nodes[1].x, nodes[0].y],
+            [nodes[1].x, nodes[1].y]
+          ],
+          color: '#38bdf8'
+        },
+        // Path 1: Algo Core across to Mem Bank
+        {
+          id: 'PATH_ALGO_MEM',
+          points: [
+            [nodes[1].x, nodes[1].y],
+            [nodes[1].x + Math.round(colW * 0.4), nodes[1].y],
+            [nodes[1].x + Math.round(colW * 0.4), nodes[2].y],
+            [nodes[2].x, nodes[2].y]
+          ],
+          color: '#6366f1'
+        },
+        // Path 2: Left trunk from Bus Ctrl down to Bridge IO
+        {
+          id: 'PATH_BUS_BRIDGE',
+          points: [
+            [nodes[0].x, nodes[0].y],
+            [nodes[0].x - 30, nodes[0].y],
+            [nodes[0].x - 30, nodes[3].y],
+            [nodes[3].x, nodes[3].y]
+          ],
+          color: '#38bdf8'
+        },
+        // Path 3: Bridge IO across to Pipeline Sync
+        {
+          id: 'PATH_BRIDGE_SYNC',
+          points: [
+            [nodes[3].x, nodes[3].y],
+            [Math.round(W * 0.45), nodes[3].y],
+            [Math.round(W * 0.45), nodes[4].y],
+            [nodes[4].x, nodes[4].y]
+          ],
+          color: '#10b981'
+        },
+        // Path 4: Pipeline Sync to Net Gateway
+        {
+          id: 'PATH_SYNC_GATE',
+          points: [
+            [nodes[4].x, nodes[4].y],
+            [nodes[6].x, nodes[4].y],
+            [nodes[6].x, nodes[6].y]
+          ],
+          color: '#6366f1'
+        },
+        // Path 5: Lower bridge from Bridge IO to Term Router
+        {
+          id: 'PATH_BRIDGE_TERM',
+          points: [
+            [nodes[3].x, nodes[3].y],
+            [nodes[3].x, nodes[5].y],
+            [nodes[5].x, nodes[5].y]
+          ],
+          color: '#38bdf8'
+        },
+        // Path 6: Term Router to Net Gate
+        {
+          id: 'PATH_TERM_GATE',
+          points: [
+            [nodes[5].x, nodes[5].y],
+            [nodes[5].x + Math.round(colW * 0.5), nodes[5].y],
+            [nodes[5].x + Math.round(colW * 0.5), nodes[6].y],
+            [nodes[6].x, nodes[6].y]
+          ],
+          color: '#10b981'
+        }
+      ];
+
+      // Pre-compute path lengths and segment breakdowns
+      paths.forEach(path => {
+        let total = 0;
+        const segments = [];
+        for (let i = 0; i < path.points.length - 1; i++) {
+          const p1 = path.points[i];
+          const p2 = path.points[i + 1];
+          const dx = p2[0] - p1[0];
+          const dy = p2[1] - p1[1];
+          const len = Math.hypot(dx, dy);
+          segments.push({
+            p1,
+            p2,
+            len,
+            startDist: total,
+            endDist: total + len
+          });
+          total += len;
+        }
+        path.totalLength = Math.max(1, total);
+        path.segments = segments;
+      });
+
+      // Initialize small data packets travelling with staggered speeds
+      packets = [
+        { pathIndex: 0, progress: 0.15, speed: 0.00065, length: 24, color: '#38bdf8' },
+        { pathIndex: 1, progress: 0.60, speed: 0.00050, length: 30, color: '#6366f1' },
+        { pathIndex: 2, progress: 0.35, speed: 0.00075, length: 22, color: '#38bdf8' },
+        { pathIndex: 3, progress: 0.80, speed: 0.00045, length: 36, color: '#10b981' },
+        { pathIndex: 4, progress: 0.20, speed: 0.00060, length: 28, color: '#6366f1' },
+        { pathIndex: 5, progress: 0.45, speed: 0.00070, length: 20, color: '#38bdf8' },
+        { pathIndex: 6, progress: 0.10, speed: 0.00055, length: 32, color: '#10b981' }
+      ];
+    }
 
     function resize() {
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
-      buildBuses();
-      drawStaticBase();
+      targetMouseX = mouseX = W / 2;
+      targetMouseY = mouseY = H / 2;
+      setupArchitecture();
     }
 
-    function buildBuses() {
-      buses = [
-        // Top margin bus (horizontal)
-        { x1: 40, y1: 80, x2: W - 40, y2: 80, dir: 'h' },
-        // Left margin bus (vertical)
-        { x1: 60, y1: 80, x2: 60, y2: H - 80, dir: 'v' },
-        // Right margin bus (vertical)
-        { x1: W - 60, y1: 80, x2: W - 60, y2: H - 80, dir: 'v' },
-        // Bottom margin bus (horizontal)
-        { x1: 40, y1: H - 80, x2: W - 40, y2: H - 80, dir: 'h' },
-        // Inner structural circuit conduit (horizontal middle)
-        { x1: 120, y1: Math.floor(H * 0.48), x2: W - 120, y2: Math.floor(H * 0.48), dir: 'h' }
-      ];
-
-      pulses = [
-        { busIndex: 0, progress: 0.1, speed: 0.0008, length: 36, color: '#38bdf8' },
-        { busIndex: 1, progress: 0.5, speed: 0.0006, length: 28, color: '#6366f1' },
-        { busIndex: 2, progress: 0.8, speed: 0.0007, length: 32, color: '#38bdf8' },
-        { busIndex: 3, progress: 0.3, speed: 0.0009, length: 40, color: '#10b981' }
-      ];
+    // Helper: find point at distance along segmented path
+    function getPointOnPath(path, dist) {
+      const clamped = Math.max(0, Math.min(path.totalLength, dist));
+      for (let i = 0; i < path.segments.length; i++) {
+        const seg = path.segments[i];
+        if (clamped >= seg.startDist && clamped <= seg.endDist) {
+          const segRatio = (clamped - seg.startDist) / (seg.len || 1);
+          return [
+            seg.p1[0] + (seg.p2[0] - seg.p1[0]) * segRatio,
+            seg.p1[1] + (seg.p2[1] - seg.p1[1]) * segRatio
+          ];
+        }
+      }
+      return path.points[path.points.length - 1];
     }
 
-    function drawStaticBase() {
-      // Deep obsidian-slate background
+    // Main rendering routine
+    function render(currentTime) {
+      const elapsed = currentTime - startTime;
+
+      // Smooth parallax lerping
+      mouseX += (targetMouseX - mouseX) * 0.04;
+      mouseY += (targetMouseY - mouseY) * 0.04;
+      scrollY += (targetScrollY - scrollY) * 0.06;
+
+      const parallaxX = (mouseX - W / 2) * 0.015;
+      const parallaxY = (mouseY - H / 2) * 0.015 + (scrollY % 60) * 0.2;
+
+      // 1. Base Dark Slate Obsidian Canvas
       ctx.fillStyle = '#080c14';
       ctx.fillRect(0, 0, W, H);
 
-      // 1. Precise architectural engineering grid (fixed, static, calm)
+      // 2. Subtle, slow-moving ambient gradient spotlights behind content
+      // Gentle harmonic motion: keeps background alive without any distraction
+      const t = elapsed * 0.00025;
+      const glow1X = W * 0.25 + Math.sin(t) * 90;
+      const glow1Y = H * 0.30 + Math.cos(t * 0.8) * 60;
+      const glow2X = W * 0.75 + Math.cos(t * 0.7) * 110;
+      const glow2Y = H * 0.65 + Math.sin(t * 0.9) * 80;
+
+      // Glow 1: Deep Cyan Ambient Halo
+      const g1 = ctx.createRadialGradient(glow1X, glow1Y, 10, glow1X, glow1Y, Math.max(280, W * 0.35));
+      g1.addColorStop(0, 'rgba(56, 189, 248, 0.045)');
+      g1.addColorStop(0.5, 'rgba(56, 189, 248, 0.018)');
+      g1.addColorStop(1, 'rgba(8, 12, 20, 0)');
+      ctx.fillStyle = g1;
+      ctx.fillRect(0, 0, W, H);
+
+      // Glow 2: Deep Indigo Ambient Halo
+      const g2 = ctx.createRadialGradient(glow2X, glow2Y, 10, glow2X, glow2Y, Math.max(320, W * 0.38));
+      g2.addColorStop(0, 'rgba(99, 102, 241, 0.038)');
+      g2.addColorStop(0.6, 'rgba(99, 102, 241, 0.012)');
+      g2.addColorStop(1, 'rgba(8, 12, 20, 0)');
+      ctx.fillStyle = g2;
+      ctx.fillRect(0, 0, W, H);
+
+      // 3. Faint Technical Grid with Parallax Shift
       const gridSize = 56;
+      const offsetX = (parallaxX * 0.5) % gridSize;
+      const offsetY = (parallaxY * 0.5) % gridSize;
+
+      ctx.save();
       ctx.strokeStyle = 'rgba(56, 189, 248, 0.022)';
       ctx.lineWidth = 1;
-
-      // Vertical grid lines
       ctx.beginPath();
-      for (let x = 0; x < W; x += gridSize) {
+
+      for (let x = offsetX; x < W + gridSize; x += gridSize) {
         ctx.moveTo(x, 0);
         ctx.lineTo(x, H);
       }
-      // Horizontal grid lines
-      for (let y = 0; y < H; y += gridSize) {
+      for (let y = offsetY; y < H + gridSize; y += gridSize) {
         ctx.moveTo(0, y);
         ctx.lineTo(W, y);
       }
       ctx.stroke();
 
-      // 2. Technical crosshairs '+' at major structural junctions
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.04)';
-      ctx.font = '10px "JetBrains Mono", monospace';
-      const step = gridSize * 2;
-      for (let x = step; x < W - step; x += step) {
-        for (let y = step; y < H - step; y += step) {
-          ctx.fillText('+', x - 3, y + 4);
+      // Major Coordinate Crosshairs '+' at interval intersections
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.038)';
+      ctx.font = '9px "JetBrains Mono", Consolas, monospace';
+      const step = gridSize * 3;
+      for (let x = offsetX + step; x < W; x += step) {
+        for (let y = offsetY + step; y < H; y += step) {
+          ctx.fillText('+', x - 3, y + 3);
         }
       }
+      ctx.restore();
 
-      // 3. Rectilinear bus tracks
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.045)';
-      ctx.lineWidth = 1;
-      buses.forEach(b => {
+      // Apply subtle parallax to the architecture layer
+      ctx.save();
+      ctx.translate(parallaxX * 0.4, (parallaxY * 0.3) % 20);
+
+      // 4. Structured Circuit Paths (Orthogonal System Conduits)
+      paths.forEach(path => {
         ctx.beginPath();
-        ctx.moveTo(b.x1, b.y1);
-        ctx.lineTo(b.x2, b.y2);
+        path.points.forEach((pt, i) => {
+          if (i === 0) ctx.moveTo(pt[0], pt[1]);
+          else ctx.lineTo(pt[0], pt[1]);
+        });
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.045)';
+        ctx.lineWidth = 1;
         ctx.stroke();
 
-        // Terminal end caps (micro square pads)
+        // Terminal end pads (micro 3x3 square solder contacts)
         ctx.fillStyle = 'rgba(56, 189, 248, 0.08)';
-        ctx.fillRect(b.x1 - 2, b.y1 - 2, 4, 4);
-        ctx.fillRect(b.x2 - 2, b.y2 - 2, 4, 4);
+        const start = path.points[0];
+        const end = path.points[path.points.length - 1];
+        ctx.fillRect(start[0] - 1.5, start[1] - 1.5, 3, 3);
+        ctx.fillRect(end[0] - 1.5, end[1] - 1.5, 3, 3);
       });
-    }
 
-    function draw() {
-      if (prefersReducedMotion) {
-        drawStaticBase();
-        return;
-      }
+      // 5. Data Packets Travelling Along Selected Paths
+      if (!prefersReducedMotion) {
+        packets.forEach(p => {
+          const path = paths[p.pathIndex];
+          if (!path) return;
 
-      drawStaticBase();
+          p.progress += p.speed;
+          if (p.progress > 1.15) {
+            p.progress = -0.15;
+          }
 
-      // 4. Subtle, purposeful data signal pulses moving strictly along rectilinear bus lines
-      pulses.forEach(p => {
-        const bus = buses[p.busIndex];
-        if (!bus) return;
+          const curDist = path.totalLength * Math.max(0, Math.min(1, p.progress));
+          const tailDist = Math.max(0, curDist - p.length);
 
-        p.progress += p.speed;
-        if (p.progress > 1.2) {
-          p.progress = -0.2;
-        }
+          const head = getPointOnPath(path, curDist);
+          const tail = getPointOnPath(path, tailDist);
 
-        const totalDist = bus.dir === 'h' ? (bus.x2 - bus.x1) : (bus.y2 - bus.y1);
-        const curDist = totalDist * Math.max(0, Math.min(1, p.progress));
-
-        let startX, startY, endX, endY;
-        if (bus.dir === 'h') {
-          startX = Math.max(bus.x1, bus.x1 + curDist - p.length);
-          endX = Math.min(bus.x2, bus.x1 + curDist);
-          startY = endY = bus.y1;
-        } else {
-          startX = endX = bus.x1;
-          startY = Math.max(bus.y1, bus.y1 + curDist - p.length);
-          endY = Math.min(bus.y2, bus.y1 + curDist);
-        }
-
-        if (endX > startX || endY > startY) {
-          const grad = ctx.createLinearGradient(startX, startY, endX, endY);
-          grad.addColorStop(0, 'rgba(56, 189, 248, 0)');
-          grad.addColorStop(0.7, p.color === '#10b981' ? 'rgba(16, 185, 129, 0.35)' : 'rgba(56, 189, 248, 0.4)');
-          grad.addColorStop(1, p.color);
+          // Render linear packet stroke with soft gradient tail
+          const packetGrad = ctx.createLinearGradient(tail[0], tail[1], head[0], head[1]);
+          packetGrad.addColorStop(0, 'rgba(56, 189, 248, 0)');
+          if (p.color === '#10b981') {
+            packetGrad.addColorStop(0.6, 'rgba(16, 185, 129, 0.35)');
+            packetGrad.addColorStop(1, '#10b981');
+          } else if (p.color === '#6366f1') {
+            packetGrad.addColorStop(0.6, 'rgba(99, 102, 241, 0.35)');
+            packetGrad.addColorStop(1, '#818cf8');
+          } else {
+            packetGrad.addColorStop(0.6, 'rgba(56, 189, 248, 0.35)');
+            packetGrad.addColorStop(1, '#38bdf8');
+          }
 
           ctx.beginPath();
-          ctx.moveTo(startX, startY);
-          ctx.lineTo(endX, endY);
-          ctx.strokeStyle = grad;
+          ctx.moveTo(tail[0], tail[1]);
+          ctx.lineTo(head[0], head[1]);
+          ctx.strokeStyle = packetGrad;
           ctx.lineWidth = 1.5;
           ctx.stroke();
+
+          // Bright packet head dot
+          ctx.beginPath();
+          ctx.arc(head[0], head[1], 1.25, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+      }
+
+      // 6. Softly Animated Connection Nodes with Breathing Halos
+      nodes.forEach(node => {
+        const pulse = prefersReducedMotion ? 0.5 : 0.5 + 0.5 * Math.sin(elapsed * 0.0018 + node.phase);
+
+        // Outer breathing halo (soft low-contrast glow)
+        const haloRadius = 7 + pulse * 5;
+        const haloAlpha = 0.05 + pulse * 0.09;
+
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, haloRadius, 0, Math.PI * 2);
+        if (node.accent === 'emerald') {
+          ctx.fillStyle = `rgba(16, 185, 129, ${haloAlpha * 0.7})`;
+        } else if (node.accent === 'indigo') {
+          ctx.fillStyle = `rgba(99, 102, 241, ${haloAlpha * 0.8})`;
+        } else {
+          ctx.fillStyle = `rgba(56, 189, 248, ${haloAlpha})`;
         }
+        ctx.fill();
+
+        // Node outline ring
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 3.5, 0, Math.PI * 2);
+        ctx.strokeStyle = node.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Node center core
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+
+        // Restrained technical code annotation
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.16)';
+        ctx.font = '9px "JetBrains Mono", Consolas, monospace';
+        ctx.fillText(node.label, node.x + 8, node.y + 3);
       });
 
-      animId = requestAnimationFrame(draw);
+      ctx.restore();
+
+      if (!prefersReducedMotion) {
+        animId = requestAnimationFrame(render);
+      }
     }
 
-    // Tab visibility handling
+    // Interactive pointer parallax (desktop only)
+    if (!isTouchDevice) {
+      window.addEventListener('mousemove', (e) => {
+        targetMouseX = e.clientX;
+        targetMouseY = e.clientY;
+      }, { passive: true });
+    }
+
+    // Scroll parallax listener
+    window.addEventListener('scroll', () => {
+      targetScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    }, { passive: true });
+
+    // Page visibility handling
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
-        cancelAnimationFrame(animId);
+        if (animId) cancelAnimationFrame(animId);
       } else if (!prefersReducedMotion) {
-        animId = requestAnimationFrame(draw);
+        animId = requestAnimationFrame(render);
       }
     });
 
+    // Debounced resize handler
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        cancelAnimationFrame(animId);
+        if (animId) cancelAnimationFrame(animId);
         resize();
-        if (!prefersReducedMotion) animId = requestAnimationFrame(draw);
+        if (!prefersReducedMotion) animId = requestAnimationFrame(render);
+        else render(performance.now());
       }, 150);
-    });
+    }, { passive: true });
 
+    // Initialize
     resize();
     if (!prefersReducedMotion) {
-      animId = requestAnimationFrame(draw);
+      animId = requestAnimationFrame(render);
     } else {
-      drawStaticBase();
+      render(performance.now());
     }
   }
 
