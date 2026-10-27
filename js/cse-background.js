@@ -216,30 +216,33 @@
         }
       ];
 
-      // Pre-compute path lengths and segment breakdowns
-      paths.forEach(path => {
-        let total = 0;
-        const segments = [];
-        for (let i = 0; i < path.points.length - 1; i++) {
-          const p1 = path.points[i];
-          const p2 = path.points[i + 1];
-          const dx = p2[0] - p1[0];
-          const dy = p2[1] - p1[1];
-          const len = Math.hypot(dx, dy);
-          segments.push({
-            p1,
-            p2,
-            len,
-            startDist: total,
-            endDist: total + len
-          });
-          total += len;
-        }
-        path.totalLength = Math.max(1, total);
-        path.segments = segments;
-      });
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
 
-      // Initialize small data packets travelling with staggered speeds
+    // Pre-compute path lengths and segment breakdowns
+    paths.forEach(path => {
+      let total = 0;
+      const segments = [];
+      for (let i = 0; i < path.points.length - 1; i++) {
+        const p1 = path.points[i];
+        const p2 = path.points[i + 1];
+        const dx = p2[0] - p1[0];
+        const dy = p2[1] - p1[1];
+        const len = Math.hypot(dx, dy);
+        segments.push({
+          p1,
+          p2,
+          len,
+          startDist: total,
+          endDist: total + len
+        });
+        total += len;
+      }
+      path.totalLength = Math.max(1, total);
+      path.segments = segments;
+    });
+
+    // Initialize data packets — concentrated in Home hero, quieter on inner pages
+    if (isHomePage) {
       packets = [
         { pathIndex: 0, progress: 0.15, speed: 0.00065, length: 24, color: '#38bdf8' },
         { pathIndex: 1, progress: 0.60, speed: 0.00050, length: 30, color: '#6366f1' },
@@ -249,7 +252,14 @@
         { pathIndex: 5, progress: 0.45, speed: 0.00070, length: 20, color: '#38bdf8' },
         { pathIndex: 6, progress: 0.10, speed: 0.00055, length: 32, color: '#10b981' }
       ];
+    } else {
+      // Quieter mode for non-home pages: fewer packets, slower movement
+      packets = [
+        { pathIndex: 1, progress: 0.40, speed: 0.00028, length: 22, color: '#38bdf8' },
+        { pathIndex: 3, progress: 0.75, speed: 0.00025, length: 24, color: '#6366f1' }
+      ];
     }
+  }
 
     function resize() {
       W = canvas.width = window.innerWidth;

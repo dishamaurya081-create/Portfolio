@@ -198,7 +198,7 @@ function initCopyEmail() {
   copyButtons.forEach(btn => {
     btn.addEventListener('click', async (e) => {
       e.preventDefault();
-      const email = 'dishamaurya081l@gmail.com';
+      const email = 'dishamaurya081@gmail.com';
       try {
         await navigator.clipboard.writeText(email);
         showToast('Email copied to clipboard: ' + email);
@@ -302,7 +302,7 @@ function initContactForm() {
 
       // Friendly notification & reset
       showToast('Thank you for reaching out, ' + name + '! Your message draft is ready.');
-      const mailtoUrl = `mailto:dishamaurya081l@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom:%20${encodeURIComponent(email)}`;
+      const mailtoUrl = `mailto:dishamaurya081@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom:%20${encodeURIComponent(email)}`;
       window.location.href = mailtoUrl;
       form.reset();
     });

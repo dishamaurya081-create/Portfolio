@@ -7,73 +7,124 @@
 (function () {
   'use strict';
 
+  // Mark JS enabled immediately so CSS knows JS is running
+  document.documentElement.classList.add('js');
+
   /* ========================================================================
      FEATURE FLAGS
      ======================================================================== */
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-  const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+  const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/Portfolio/') || window.location.pathname === '';
 
   if (isTouchDevice) document.body.classList.add('touch-device');
 
   /* ========================================================================
-     1. LOADING SCREEN
+     1. FAST DIRECT PAGE READY
      ======================================================================== */
   function initLoadingScreen() {
-    if (prefersReducedMotion) {
-      document.body.classList.add('page-ready');
-      return;
-    }
-
-    // Only show on first visit per session
-    const visited = sessionStorage.getItem('dm-visited');
-    const screen = document.getElementById('loadingScreen');
-    if (!screen) {
-      document.body.classList.add('page-ready');
-      return;
-    }
-
-    if (visited) {
-      screen.remove();
-      document.body.classList.add('page-ready');
-      return;
-    }
-
-    sessionStorage.setItem('dm-visited', '1');
-
-    setTimeout(() => {
-      screen.classList.add('hidden');
-      document.body.classList.add('page-ready');
-      setTimeout(() => screen.remove(), 520);
-    }, 1050);
+    // Reveal content immediately — no blocking delay
+    document.body.classList.add('page-ready');
   }
 
   /* ========================================================================
-     2. PAGE TRANSITIONS (fade-out on link click)
+     2. PAGE TRANSITIONS (Subtle fade between HTML pages)
+     Preserves browser back/forward and direct loading
      ======================================================================== */
   function initPageTransitions() {
     if (prefersReducedMotion) return;
+
+    // Restore page opacity on browser back/forward (bfcache)
+    window.addEventListener('pageshow', () => {
+      document.body.classList.remove('page-exit');
+      document.body.classList.add('page-ready');
+    });
 
     document.addEventListener('click', (e) => {
       const link = e.target.closest('a[href]');
       if (!link) return;
 
       const href = link.getAttribute('href');
-      // Only handle same-origin, same-folder .html links
+      // Only handle same-origin HTML links; ignore anchors, mailto, tel, pdfs, and downloads
       if (
         !href ||
         href.startsWith('#') ||
         href.startsWith('http') ||
         href.startsWith('mailto') ||
         href.startsWith('tel') ||
+        href.endsWith('.pdf') ||
         link.target === '_blank' ||
+        link.hasAttribute('download') ||
         e.ctrlKey || e.metaKey || e.shiftKey
       ) return;
 
       e.preventDefault();
       document.body.classList.add('page-exit');
-      setTimeout(() => { window.location.href = href; }, 200);
+      setTimeout(() => { window.location.href = href; }, 180);
     });
+  }
+
+  /* ========================================================================
+     2B. HERO ROLE SUBTLE TYPING / REVEAL EFFECT
+     Applies only to the existing role tagline, prevents layout shifts,
+     and ensures the full text remains accessible to assistive technology.
+     ======================================================================== */
+  function initHeroRoleTyping() {
+    if (!isHomePage) return;
+
+    const roleEl = document.querySelector('.hero-role');
+    if (!roleEl) return;
+
+    const fullText = (roleEl.getAttribute('data-role-text') || roleEl.textContent || 'Computer Science & Engineering Student').trim();
+    // Semantic accessibility label
+    roleEl.setAttribute('aria-label', fullText);
+
+    if (prefersReducedMotion) {
+      roleEl.textContent = fullText;
+      return;
+    }
+
+    // Lock rendered height so layout never shifts during typing
+    const rect = roleEl.getBoundingClientRect();
+    if (rect.height > 0) {
+      roleEl.style.minHeight = `${rect.height}px`;
+    }
+
+    const textSpan = document.createElement('span');
+    textSpan.className = 'typewriter-text';
+    textSpan.setAttribute('aria-hidden', 'true');
+
+    const cursorSpan = document.createElement('span');
+    cursorSpan.className = 'typewriter-cursor';
+    cursorSpan.setAttribute('aria-hidden', 'true');
+    cursorSpan.textContent = '❘';
+
+    roleEl.innerHTML = '';
+    roleEl.appendChild(textSpan);
+    roleEl.appendChild(cursorSpan);
+
+    let charIndex = 0;
+    const charDelay = 38; // ms per char
+    const startDelay = 350; // trigger along with hero entrance
+
+    setTimeout(() => {
+      function typeNextChar() {
+        if (charIndex < fullText.length) {
+          textSpan.textContent += fullText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeNextChar, charDelay);
+        } else {
+          // Finished typing: cursor blinks and fades away gracefully
+          setTimeout(() => {
+            cursorSpan.classList.add('fade-out');
+            setTimeout(() => {
+              if (cursorSpan.parentNode) cursorSpan.remove();
+            }, 450);
+          }, 1200);
+        }
+      }
+      typeNextChar();
+    }, startDelay);
   }
 
   /* ========================================================================
@@ -508,20 +559,10 @@
   }
 
   /* ========================================================================
-     12. LOADING SCREEN DOM INJECTION
+     12. LOADING SCREEN (Disabled in favor of instant direct page load)
      ======================================================================== */
   function injectLoadingScreen() {
-    if (prefersReducedMotion) return;
-    if (sessionStorage.getItem('dm-visited')) return;
-
-    const screen = document.createElement('div');
-    screen.id = 'loadingScreen';
-    screen.innerHTML = `
-      <div class="loader-name">Disha Maurya</div>
-      <div class="loader-sub">Portfolio Loading</div>
-      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-    `;
-    document.body.prepend(screen);
+    // Direct page loading without blocking DOM injection
   }
 
   /* ========================================================================
@@ -583,11 +624,11 @@
      INIT — DOMContentLoaded
      ======================================================================== */
   function init() {
-    injectLoadingScreen();
     initLoadingScreen();
     initAmbientBackground();
     initPageHeader();
     initHeroAnimation();
+    initHeroRoleTyping();
     initHeroWorkspaceEntrance();
     initHeroParallax();
     initPageTransitions();
