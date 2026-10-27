@@ -89,7 +89,7 @@
   }
 
   /* ========================================================================
-     4. HERO STAGGER ANIMATION
+     4. HERO STAGGER ANIMATION & MASKED TITLE
      ======================================================================== */
   function initHeroAnimation() {
     if (!isHomePage) return;
@@ -110,8 +110,9 @@
       el.classList.add('hero-animate', `hero-anim-${i}`);
     });
 
-    // Animate right column (hero visual) as a unit with slight delay
+    // Animate right column (hero visual) with progressive assembly
     const heroVisual = document.querySelector('.hero-visual');
+    const workspaceCard = document.querySelector('.cse-workspace-card');
     if (heroVisual) {
       heroVisual.classList.add('hero-animate', 'hero-anim-2');
     }
@@ -122,7 +123,12 @@
         document.querySelectorAll('.hero-animate').forEach(el => {
           el.classList.add('hero-visible');
         });
-      }, prefersReducedMotion ? 0 : 120);
+        if (workspaceCard) {
+          setTimeout(() => {
+            workspaceCard.classList.add('assembled');
+          }, prefersReducedMotion ? 0 : 200);
+        }
+      }, prefersReducedMotion ? 0 : 100);
     });
   }
 
@@ -252,11 +258,12 @@
         const rect = tl.getBoundingClientRect();
         
         // Check if timeline is in viewport range
-        if (rect.top < vh * 0.85 && rect.bottom > 0) {
+        if (rect.top < vh * 0.88 && rect.bottom > 0) {
           tl.classList.add('timeline-revealed');
           
           // Calculate scroll progress percentage (0 to 1) through the timeline
-          const progress = Math.min(1, Math.max(0, (vh * 0.7 - rect.top) / rect.height));
+          const progress = Math.min(1, Math.max(0.06, (vh * 0.75 - rect.top) / rect.height));
+          tl.style.setProperty('--timeline-progress', progress.toFixed(3));
           
           // Apply progress height to the vertical pseudo/line
           const lineEl = tl.querySelector('.timeline-line-fill');

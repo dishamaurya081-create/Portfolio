@@ -117,7 +117,7 @@
       viewport.innerHTML = html;
     }
 
-    // Tab switcher
+    // Tab switcher with module sync
     function switchTab(tabKey, userTriggered = false) {
       currentTab = tabKey;
       tabs.forEach(t => {
@@ -127,6 +127,16 @@
       });
 
       renderSnippet(tabKey);
+
+      // Connect editor tab with architecture modules
+      const moduleAlgo = document.getElementById('moduleAlgo');
+      const moduleBus = document.getElementById('moduleBus');
+      const moduleOss = document.getElementById('moduleOss');
+      if (moduleAlgo && moduleBus && moduleOss) {
+        moduleAlgo.classList.toggle('module-active-focus', tabKey === 'dsa');
+        moduleBus.classList.toggle('module-active-focus', tabKey === 'runtime' || tabKey === 'ai');
+        moduleOss.classList.toggle('module-active-focus', tabKey === 'runtime');
+      }
 
       if (userTriggered) {
         isUserInteracting = true;

@@ -39,14 +39,145 @@ body.page-exit {
   transform: translateY(0);
 }
 
+/* Masked Title Animation */
+.hero-title-masked {
+  display: block;
+  overflow: hidden;
+  line-height: 1.15;
+}
+
+.hero-title-inner {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.16s,
+              opacity 0.75s ease 0.16s;
+  will-change: transform, opacity;
+}
+
+.hero-visible .hero-title-inner,
+.hero-title-masked.hero-visible .hero-title-inner,
+.hero-animate.hero-visible .hero-title-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /* Stagger delays for hero elements */
 .hero-anim-0 { transition-delay: 0.05s; }
-.hero-anim-1 { transition-delay: 0.18s; }
-.hero-anim-2 { transition-delay: 0.32s; }
-.hero-anim-3 { transition-delay: 0.46s; }
-.hero-anim-4 { transition-delay: 0.60s; }
-.hero-anim-5 { transition-delay: 0.74s; }
-.hero-anim-6 { transition-delay: 0.86s; }
+.hero-anim-1 { transition-delay: 0.16s; }
+.hero-anim-2 { transition-delay: 0.30s; }
+.hero-anim-3 { transition-delay: 0.44s; }
+.hero-anim-4 { transition-delay: 0.58s; }
+.hero-anim-5 { transition-delay: 0.72s; }
+.hero-anim-6 { transition-delay: 0.84s; }
+
+/* Progressive assembly of software architecture centerpiece */
+.cse-workspace-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.cse-workspace-card .workspace-titlebar {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.cse-workspace-card .workspace-editor-pane {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s,
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+.cse-workspace-card .system-module {
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background 0.25s ease;
+}
+
+.cse-workspace-card .algo-module { transition-delay: 0.48s; }
+.cse-workspace-card .arch-bus-module { transition-delay: 0.62s; }
+.cse-workspace-card .oss-module { transition-delay: 0.76s; }
+
+.cse-workspace-card .workspace-terminal-pane {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.9s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.9s;
+}
+
+.hero-visible .cse-workspace-card .workspace-titlebar,
+.hero-visible .cse-workspace-card .workspace-editor-pane,
+.hero-visible .cse-workspace-card .system-module,
+.hero-visible .cse-workspace-card .workspace-terminal-pane,
+.cse-workspace-card.assembled .workspace-titlebar,
+.cse-workspace-card.assembled .workspace-editor-pane,
+.cse-workspace-card.assembled .system-module,
+.cse-workspace-card.assembled .workspace-terminal-pane {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Subtle code-line highlights and flowing connections */
+.code-line.code-line-highlight {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-left: 2px solid var(--accent-cyan);
+  box-shadow: inset 0 0 14px rgba(56, 189, 248, 0.08);
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.bus-bridge {
+  position: relative;
+  overflow: hidden;
+}
+
+.bus-bridge .bridge-line {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(56, 189, 248, 0.25);
+  overflow: hidden;
+}
+
+.bus-bridge .bridge-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+  animation: flowingBusSignal 2.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes flowingBusSignal {
+  0% { left: -100%; }
+  60%, 100% { left: 100%; }
+}
+
+.flow-connector {
+  position: relative;
+  color: rgba(56, 189, 248, 0.6);
+  animation: connectorPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes connectorPulse {
+  0%, 100% { opacity: 0.45; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(2px); color: var(--accent-cyan); }
+}
+
+.system-module.module-active-focus {
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.16) !important;
+  background: rgba(18, 27, 44, 0.95) !important;
+}
 
 /* ==========================================================================
    3. SCROLL REVEAL SYSTEM
@@ -212,9 +343,9 @@ body.page-exit {
 .card:hover,
 .project-card:hover,
 .competition-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.38);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(56, 189, 248, 0.08);
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.1);
 }
 
 .stat-card:hover {
@@ -226,19 +357,30 @@ body.page-exit {
 /* Featured project card — refined elevation without excessive neon */
 .featured-project-card:hover,
 .editorial-project:hover {
-  transform: translateY(-5px);
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.1);
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.72), 0 0 35px rgba(56, 189, 248, 0.12);
 }
 
-/* Project schematic interactive hover */
-.project-schematic {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+/* Project image zoom & schematic interactive hover */
+.project-card img,
+.editorial-project img,
+.project-schematic,
+.project-image-preview {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.4s ease;
+  will-change: transform;
+}
+
+.project-card:hover img,
+.editorial-project:hover img,
+.project-image-preview:hover img {
+  transform: scale(1.04);
 }
 
 .editorial-project:hover .project-schematic {
-  transform: scale(1.02);
-  border-color: rgba(56, 189, 248, 0.4);
+  transform: scale(1.025);
+  border-color: rgba(56, 189, 248, 0.45);
 }
 
 /* Schematic pipeline pulsating connector */
@@ -451,13 +593,15 @@ body.page-exit {
   width: 3px;
   background: linear-gradient(180deg, 
     #38bdf8 0%, 
-    rgba(56, 189, 248, 0.6) 30%, 
-    rgba(99, 102, 241, 0.5) 70%, 
-    rgba(16, 185, 129, 0.4) 100%
+    rgba(56, 189, 248, 0.7) 25%, 
+    rgba(99, 102, 241, 0.65) 65%, 
+    rgba(16, 185, 129, 0.6) 100%
   );
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
   transform-origin: top;
-  transition: transform 0.25s ease-out;
+  transform: scaleY(var(--timeline-progress, 0.05));
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .journey-milestone {
@@ -473,6 +617,69 @@ body.page-exit {
 }
 
 .journey-node {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+/* Certificate & Document Cards */
+.certificate-doc-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(22, 27, 38, 0.85) 0%, rgba(13, 17, 24, 0.95) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.32s ease,
+              box-shadow 0.32s ease,
+              background 0.32s ease;
+  overflow: hidden;
+}
+
+.certificate-doc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.certificate-doc-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+.certificate-doc-card:hover::before {
+  opacity: 1;
+}
+
+.certificate-doc-card .doc-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease;
+}
+
+.certificate-doc-card:hover .doc-icon-wrap {
+  transform: scale(1.08);
+  background: rgba(56, 189, 248, 0.15);
+  color: #ffffff;
+}
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.3s ease,
               border-color 0.3s ease;
