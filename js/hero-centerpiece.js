@@ -34,19 +34,20 @@
       filepath: 'ai/services/',
       lang: 'PYTHON / GEMINI',
       lines: [
-        { num: 1, html: '<span class="tok-kwd">import</span> <span class="tok-var">google.generativeai</span> <span class="tok-kwd">as</span> <span class="tok-var">genai</span>' },
-        { num: 2, html: '<span class="tok-kwd">from</span> <span class="tok-var">core.vision</span> <span class="tok-kwd">import</span> <span class="tok-type">RoadHazardAuditor</span>' },
-        { num: 3, html: '' },
-        { num: 4, html: '<span class="tok-kwd">class</span> <span class="tok-class">NagarAIEngine</span>:' },
-        { num: 5, html: '    <span class="tok-kwd">def</span> <span class="tok-fn">__init__</span>(<span class="tok-param">self</span>, <span class="tok-param">api_key</span>: <span class="tok-type">str</span>):' },
-        { num: 6, html: '        <span class="tok-var">genai</span>.<span class="tok-fn">configure</span>(<span class="tok-prop">api_key</span>=<span class="tok-param">api_key</span>)' },
-        { num: 7, html: '        <span class="tok-param">self</span>.<span class="tok-prop">model</span> = <span class="tok-var">genai</span>.<span class="tok-fn">GenerativeModel</span>(<span class="tok-str">\'gemini-2.5-flash\'</span>)' },
-        { num: 8, html: '' },
-        { num: 9, html: '    <span class="tok-kwd">async def</span> <span class="tok-fn">audit_civic_report</span>(<span class="tok-param">self</span>, <span class="tok-param">image_bytes</span>: <span class="tok-type">bytes</span>) -&gt; <span class="tok-type">dict</span>:' },
-        { num: 10, html: '        <span class="tok-var">analysis</span> = <span class="tok-kwd">await</span> <span class="tok-param">self</span>.<span class="tok-prop">model</span>.<span class="tok-fn">generate_content</span>([' },
-        { num: 11, html: '            <span class="tok-str">"Audit hazard severity & ward priority"</span>, <span class="tok-param">image_bytes</span>' },
-        { num: 12, html: '        ])' },
-        { num: 13, html: '        <span class="tok-kwd">return</span> {<span class="tok-str">"priority"</span>: <span class="tok-str">"HIGH"</span>, <span class="tok-str">"confidence"</span>: <span class="tok-num">0.984</span>}' }
+        { num: 1, html: '<span class="tok-cmt"># Simplified illustration: Civic AI Pipeline</span>' },
+        { num: 2, html: '<span class="tok-kwd">import</span> <span class="tok-var">google.generativeai</span> <span class="tok-kwd">as</span> <span class="tok-var">genai</span>' },
+        { num: 3, html: '<span class="tok-kwd">from</span> <span class="tok-var">core.vision</span> <span class="tok-kwd">import</span> <span class="tok-type">RoadHazardAuditor</span>' },
+        { num: 4, html: '' },
+        { num: 5, html: '<span class="tok-kwd">class</span> <span class="tok-class">NagarAIEngine</span>:' },
+        { num: 6, html: '    <span class="tok-kwd">def</span> <span class="tok-fn">__init__</span>(<span class="tok-param">self</span>, <span class="tok-param">api_key</span>: <span class="tok-type">str</span>):' },
+        { num: 7, html: '        <span class="tok-var">genai</span>.<span class="tok-fn">configure</span>(<span class="tok-prop">api_key</span>=<span class="tok-param">api_key</span>)' },
+        { num: 8, html: '        <span class="tok-param">self</span>.<span class="tok-prop">model</span> = <span class="tok-var">genai</span>.<span class="tok-fn">GenerativeModel</span>(<span class="tok-str">\'gemini-2.5-flash\'</span>)' },
+        { num: 9, html: '' },
+        { num: 10, html: '    <span class="tok-kwd">async def</span> <span class="tok-fn">audit_civic_report</span>(<span class="tok-param">self</span>, <span class="tok-param">image_bytes</span>: <span class="tok-type">bytes</span>) -&gt; <span class="tok-type">dict</span>:' },
+        { num: 11, html: '        <span class="tok-var">analysis</span> = <span class="tok-kwd">await</span> <span class="tok-param">self</span>.<span class="tok-prop">model</span>.<span class="tok-fn">generate_content</span>([' },
+        { num: 12, html: '            <span class="tok-str">"Audit hazard severity & ward priority"</span>, <span class="tok-param">image_bytes</span>' },
+        { num: 13, html: '        ])' },
+        { num: 14, html: '        <span class="tok-kwd">return</span> {<span class="tok-str">"priority"</span>: <span class="tok-str">"HIGH"</span>, <span class="tok-str">"status"</span>: <span class="tok-str">"VERIFIED"</span>}' }
       ]
     },
     dsa: {
@@ -74,7 +75,7 @@
   const TERMINAL_LOGS = [
     { type: 'cmd', text: '$ npm run build:verify' },
     { type: 'cyan', text: '✓ [ALGORITHMS] 1,049 DSA problems solved (CodeChef Diamond • 29 Contests)' },
-    { type: 'emerald', text: '✓ [OPEN_SOURCE] 21 merged PRs in GSSoC 2026 across 8 production repositories' },
+    { type: 'emerald', text: '✓ [OPEN_SOURCE] 21 merged PRs in GSSoC 2026 across 8 open-source repositories' },
     { type: 'indigo', text: '✓ [PRACTICAL_AI] Gemini Vision & civic models deployed on Nagar AI & Privacy Guardian' },
     { type: 'cyan', text: '✓ [SYSTEM_STACK] React + TypeScript + Node.js distributed pipelines online' }
   ];
