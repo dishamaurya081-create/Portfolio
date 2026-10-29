@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   resetScrollToTop();
 
   initNavigation();
+  initExternalLinks();
   initCertificateModal();
   initResumeButton();
   initCopyEmail();
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   resetScrollToTop();
+  initExternalLinks();
 });
 
 window.addEventListener('pageshow', (event) => {
@@ -81,6 +83,32 @@ function initNavigation() {
     const href = link.getAttribute('href');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.classList.add('active');
+    }
+  });
+}
+
+/* ==========================================================================
+   External Links Handler — Open External URLs & PDFs in New Tab
+   ========================================================================== */
+function initExternalLinks() {
+  const internalPages = [
+    'index.html', 'about.html', 'projects.html', 'experience.html',
+    'opensource.html', 'hackathons.html', 'competitions.html',
+    'coding.html', 'achievements.html', 'journey.html', 'contact.html', 'work.html'
+  ];
+
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+    const lowerHref = href.toLowerCase();
+    const isHttp = lowerHref.startsWith('http://') || lowerHref.startsWith('https://');
+    const isDoc = lowerHref.endsWith('.pdf') || lowerHref.endsWith('.png') || lowerHref.endsWith('.jpg') || lowerHref.includes('assets/');
+    const isInternalPage = internalPages.some(page => lowerHref === page || lowerHref.endsWith('/' + page));
+
+    if ((isHttp || isDoc) && !isInternalPage) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
     }
   });
 }
@@ -172,8 +200,22 @@ function initCertificateModal() {
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-certificate-src]');
     if (trigger) {
-      e.preventDefault();
       const src = trigger.getAttribute('data-certificate-src');
+      const isPdf = src && src.toLowerCase().endsWith('.pdf');
+
+      // If it's already an anchor tag targeting _blank, allow natural browser new-tab opening
+      if (trigger.tagName === 'A' && trigger.getAttribute('target') === '_blank') {
+        return;
+      }
+
+      // For PDF certificates, open directly in a new tab
+      if (isPdf) {
+        e.preventDefault();
+        window.open(src, '_blank', 'noopener,noreferrer');
+        return;
+      }
+
+      e.preventDefault();
       const title = trigger.getAttribute('data-certificate-title') || trigger.innerText.trim();
       openModal(src, title);
     }
